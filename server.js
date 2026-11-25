@@ -1,15 +1,10 @@
-﻿const express = require('express');
+import express from 'express';
+import routes from './routes.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (_req, res) => {
-  res.send('Hello from Express!');
-});
-
-app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok' });
-});
+app.use(routes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
